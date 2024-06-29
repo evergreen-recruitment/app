@@ -55,14 +55,6 @@
       }
     },
     {
-      "path": "pages/about/about",
-      "type": "page",
-      "layout": "tabbar",
-      "style": {
-        "navigationBarTitleText": "关于"
-      }
-    },
-    {
       "path": "pages/my/index",
       "type": "page",
       "layout": "tabbar",
