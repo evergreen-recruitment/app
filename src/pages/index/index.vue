@@ -63,6 +63,7 @@
 </template>
 
 <script lang="ts" setup>
+import JobCard from './components/job-card/job-card'
 import { SimpleCompanyType, getHotCompanyApi } from '@/service/company'
 import { getNewJobsApi, getNearbyJobsApi } from '@/service/job'
 
