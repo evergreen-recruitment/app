@@ -16,24 +16,45 @@
       :bordered="false"
     >
       <template #left>
-        <image class="w-10 h-10" src="/static/images/logo.png" mode="scaleToFill" />
       </template>
     </wd-navbar> -->
-    <wd-swiper
-      :list="hotCompanyImageList"
-      custom-class="w-full rounded-0"
-      image-mode="aspectFit"
-      autoplay
+    <!-- custom-class="w-full rounded-0" -->
+    <view class="flex justify-between items-center px-2 box-border">
+      <image class="w-1/3 h-16" src="/static/images/logo1-black.png" mode="aspectFit" />
+      <view class="center text-base font-bold">
+        大学生招聘平台
+        <view class="text-sm font-500">(测试)</view>
+      </view>
+    </view>
+    <view class="card-swiper">
+      <wd-swiper
+        custom-class="mx-auto"
+        custom-image-class="custom-image"
+        custom-next-image-class="custom-image-prev"
+        custom-prev-image-class="custom-image-prev"
+        :list="hotCompanyImageList"
+        image-mode="aspectFit"
+        previousMargin="24px"
+        nextMargin="24px"
+        autoplay
+      >
+        <template #indicator="{ current, total }">
+          <view
+            class="absolute bottom-4 right-4 text-white text-xs p-1 bg-[rgba(0,0,0,0.7)] rounded-3"
+          >
+            {{ current + 1 }}/{{ total }}
+          </view>
+        </template>
+      </wd-swiper>
+    </view>
+    <wd-tabs
+      custom-style="background-color: transparent !important;"
+      v-model="currentTab"
+      :offset-top="safeAreaInsets?.top"
+      sticky
+      swipeable
+      animated
     >
-      <template #indicator="{ current, total }">
-        <view
-          class="absolute bottom-4 right-4 text-white text-xs p-1 bg-[rgba(0,0,0,0.7)] rounded-3"
-        >
-          {{ current + 1 }}/{{ total }}
-        </view>
-      </template>
-    </wd-swiper>
-    <wd-tabs v-model="currentTab" :offset-top="safeAreaInsets?.top" sticky>
       <wd-tab v-for="item in tabs" :title="item.label" :name="item.id" :key="item.id">
         <job-card v-for="job in item.list" :job="job" :key="job.id"></job-card>
       </wd-tab>
@@ -42,7 +63,6 @@
 </template>
 
 <script lang="ts" setup>
-import JobCard from './components/jobCard.vue'
 import { SimpleCompanyType, getHotCompanyApi } from '@/service/company'
 import { getNewJobsApi, getNearbyJobsApi } from '@/service/job'
 
@@ -83,9 +103,9 @@ async function getHotCompany() {
 }
 
 async function getJobData() {
-  tabs.value[0].list = await (await getNewJobsApi({ current: 2, pageSize: 12 })).data
-  tabs.value[1].list = await (await getNewJobsApi({ pageSize: 12 })).data
-  tabs.value[2].list = await (
+  tabs.value[0].list = (await getNewJobsApi({ current: 2, pageSize: 12 })).data
+  tabs.value[1].list = (await getNewJobsApi({ pageSize: 12 })).data
+  tabs.value[2].list = (
     await getNearbyJobsApi({
       current: 1,
       pageSize: 12,
@@ -99,3 +119,26 @@ onReady(async () => {
   await getJobData()
 })
 </script>
+<style lang="scss" scoped>
+.card-swiper {
+  --wot-swiper-radius: 0;
+  --wot-swiper-item-padding: 0 24rpx;
+  --wot-swiper-nav-dot-color: #e7e7e7;
+  --wot-swiper-nav-dot-active-color: #4d80f0;
+  padding-bottom: 24rpx;
+  box-sizing: border-box;
+  :deep(.custom-image) {
+    height: 158px !important;
+    border-radius: 12rpx;
+    background: #ffffff;
+    box-shadow: 0 10rpx 20rpx rgba(0, 0, 0, 0.1);
+  }
+  :deep(.custom-image-prev) {
+    height: 128px !important;
+  }
+}
+:deep(.wd-tabs__nav) {
+  background: rgba(255, 255, 255, 0.6);
+  @apply backdrop-blur-md backdrop-saturate-150;
+}
+</style>

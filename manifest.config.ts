@@ -70,7 +70,15 @@ export default defineManifestConfig({
       /* ios打包配置 */
       ios: {},
       /* SDK配置 */
-      sdkConfigs: {},
+      sdkConfigs: {
+        maps: {
+          amap: {
+            name: 'amapCIt7AzdoW',
+            appkey_ios: '410807074b37e182410b296f03e67c2a',
+            appkey_android: '410807074b37e182410b296f03e67c2a',
+          },
+        },
+      },
       /* 图标配置 */
       icons: {
         android: {

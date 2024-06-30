@@ -68,8 +68,17 @@
       "type": "loginByCaptcha",
       "layout": "auth",
       "style": {
-        "navigationStyle": "custom",
+        "navigationBarBackgroundColor": "#ffffff",
         "navigationBarTitleText": "登录"
+      }
+    },
+    {
+      "path": "pages/job/detail/index",
+      "type": "jobDetail",
+      "layout": "default",
+      "style": {
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTitleText": "岗位详情"
       }
     },
     {

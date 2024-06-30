@@ -1,5 +1,7 @@
 <template>
   <wd-tabbar
+    custom-class="backdrop-blur-md backdrop-saturate-150"
+    custom-style="background-color: rgba(255, 255, 255, 0.6)"
     fixed
     v-model="tabbarStore.curIdx"
     bordered

@@ -2,7 +2,7 @@
 {
   layout: 'auth',
   style: {
-    navigationStyle: 'custom',
+    navigationBarBackgroundColor: '#ffffff',
     navigationBarTitleText: '登录',
   },
 }

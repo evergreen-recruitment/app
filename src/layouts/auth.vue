@@ -1,13 +1,5 @@
 <template>
   <wd-config-provider :themeVars="themeVars">
-    <wd-navbar
-      fixed
-      safeAreaInsetTop
-      left-arrow
-      :bordered="false"
-      custom-style="background-color: transparent !important;"
-      @click-left="goBack"
-    ></wd-navbar>
     <view class="logo block w-full h-20 pt-10">
       <image class="w-full h-full" src="/static/images/logo1-black.png" mode="aspectFit" />
     </view>
@@ -26,9 +18,5 @@ const themeVars: ConfigProviderThemeVars = {
   // colorTheme: 'red',
   // buttonPrimaryBgColor: '#07c160',
   // buttonPrimaryColor: '#07c160',
-}
-
-function goBack() {
-  uni.navigateBack()
 }
 </script>

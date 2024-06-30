@@ -7,6 +7,7 @@ interface NavigateToOptions {
   url: "/pages/index/index" |
        "/pages/my/index" |
        "/pages/auth/loginByCaptcha/index" |
+       "/pages/job/detail/index" |
        "/pages/job/search/index";
 }
 interface RedirectToOptions extends NavigateToOptions {}

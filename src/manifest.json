@@ -43,7 +43,15 @@
         ]
       },
       "ios": {},
-      "sdkConfigs": {},
+      "sdkConfigs": {
+        "maps": {
+          "amap": {
+            "name": "amapCIt7AzdoW",
+            "appkey_ios": "410807074b37e182410b296f03e67c2a",
+            "appkey_android": "410807074b37e182410b296f03e67c2a"
+          }
+        }
+      },
       "icons": {
         "android": {
           "hdpi": "static/app/icons/72x72.png",
