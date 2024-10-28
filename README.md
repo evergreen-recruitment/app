@@ -18,7 +18,8 @@
 
 项目适配了多端(目前是H5和安卓)
 
-项目的仓库地址为https://github.com/evergreen-recruitment/app，该项目的前端和移动端作者均为<我> (pepedd864)
+项目的仓库地址为https://github.com/evergreen-recruitment/app
+该项目的前端和移动端作者均为<我> (pepedd864)
 
 > **选题、需求、设计、实现等，参考PPT和设计文档**
 
